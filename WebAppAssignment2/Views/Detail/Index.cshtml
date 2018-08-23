@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebAppAssignment2.Models.Sports>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th style="border: 1px solid black">
+            @Html.DisplayNameFor(model => model.SportsPersonId)
+        </th>
+        <th style="border: 1px solid black">
+            @Html.DisplayNameFor(model => model.SportPersonName)
+        </th>
+        <th style="border: 1px solid black">
+            @Html.DisplayNameFor(model => model.SportsName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    
+        if (item.DoesHeOrShePlayNow == true)
+        { 
+            <tr style="background-color:red;border: 1px solid black">
+            <td style="border: 1px solid black">
+                @Html.DisplayFor(modelItem => item.SportsPersonId)
+            </td>
+            <td style="border: 1px solid black">
+                @Html.DisplayFor(modelItem => item.SportPersonName)
+            </td>
+            <td style="border: 1px solid black">
+                @Html.DisplayFor(modelItem => item.SportsName)
+            </td>
+            </tr>
+        }
+        else
+        {
+        <tr style="background-color: yellow;border: 1px solid black">
+        <td style="border: 1px solid black">
+            @Html.DisplayFor(modelItem => item.SportsPersonId)
+        </td>
+        <td style="border: 1px solid black">
+            @Html.DisplayFor(modelItem => item.SportPersonName)
+        </td>
+        <td style="border: 1px solid black">
+            @Html.DisplayFor(modelItem => item.SportsName)
+        </td>
+        </tr>
+        }
+        
+   
+}
+
+</table>
